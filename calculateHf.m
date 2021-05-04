@@ -9,7 +9,7 @@ Df0=[-1;zeros(N-1,1)];
 
 
 %PRO TESTOVÁNÍ
-
+%{
 u_sm = 5*ones(size(Rs));
 JN = (r-P*X0-S1*u_sm -S2*Rs)'*Q*(r-P*X0-S1*u_sm -S2*Rs)+R*u_sm + (Df*u_sm+Df0*u0)'*S*(Df*u_sm+Df0*u0)
 
@@ -54,7 +54,10 @@ H=S1'*Q*S1+Df'*S*Df;
 
 % quadratic form
 JN = u_sm'*H*u_sm+2*f*u_sm+j0
+%}
 
+f= ((R/2)-1*(r-P*X0-S2*Rs)'*Q*S1+(Df0*u0)'*S*Df);
+H=S1'*Q*S1+Df'*S*Df;
 
 end
 
